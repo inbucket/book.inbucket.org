@@ -14,7 +14,7 @@
 # Reference Guide
 
 - [Configuration]()
-- [Extensions]()
-    - [REST API]()
+- [Extensions](extensions/README.md)
+    - [REST API](extensions/rest.md)
     - [Lua API]()
     - [Go API]()
