@@ -1,32 +1,41 @@
 name: Publish
+
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
+
+    env:
+      MDBOOK_TAG: "v0.4.37"
+
+    # GITHUB_TOKEN permissions.
     permissions:
       contents: write  # To push a branch
       pages: write  # To push to a GitHub Pages site
       id-token: write # To update the deployment status
+
+    # Only allow a single concurrent deployment.
+    concurrency:
+      group: pages
+      cancel-in-progress: false
+
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
       - name: Install mdbook
         run: |
-          tag="v0.4.37"
-          url="https://github.com/rust-lang/mdbook/releases/download/${tag}/mdbook-${tag}-x86_64-unknown-linux-gnu.tar.gz"
+          url="https://github.com/rust-lang/mdbook/releases/download/${MDBOOK_TAG}/mdbook-${MDBOOK_TAG}-x86_64-unknown-linux-gnu.tar.gz"
           mkdir mdbook
           curl -sSL $url | tar -xz --directory=./mdbook
           echo `pwd`/mdbook >> $GITHUB_PATH
       - name: Build Book
-        run: |
-          # This assumes your book is in the root of your repository.
-          # Just add a `cd` here if you need to change to another directory.
-          mdbook build
+        run: mdbook build
       - name: Setup Pages
         uses: actions/configure-pages@v2
       - name: Upload artifact
