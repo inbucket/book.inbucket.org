@@ -21,5 +21,5 @@
         - [Get Message Source](extensions/rest/get-message-source.md)
         - [Delete Message](extensions/rest/delete-message.md)
         - [Purge Mailbox](extensions/rest/delete-mailbox.md)
-    - [Lua API]()
+    - [Lua API](extensions/lua/README.md)
     - [Go API]()
