@@ -14,7 +14,12 @@
 # Reference Guide
 
 - [Configuration]()
-- [Extensions]()
-    - [REST API]()
+- [Extensions](extensions/README.md)
+    - [REST API](extensions/rest/README.md)
+        - [List Mailbox Contents](extensions/rest/get-mailbox.md)
+        - [Get Message](extensions/rest/get-message.md)
+        - [Get Message Source](extensions/rest/get-message-source.md)
+        - [Delete Message](extensions/rest/delete-message.md)
+        - [Purge Mailbox](extensions/rest/delete-mailbox.md)
     - [Lua API]()
     - [Go API]()
