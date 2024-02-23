@@ -36,3 +36,12 @@ For example, an _after_ event handler might:
 These events are processed asynchronously with respect to the rest of Inbucket's
 services; performing (reasonable) file or network operations within them will
 not degrade Inbucket's performance.
+
+## Event Flow
+
+The order in which events occur is:
+
+1. [Before Mail Accepted](lua/before-mail-accepted.md)
+2. [Before Message Stored](lua/before-message-stored.md)
+3. [After Message Stored](lua/after-message-stored.md)
+4. [After Message Deleted](lua/after-message-deleted.md)
