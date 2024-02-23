@@ -22,7 +22,8 @@ functions following this naming pattern: `inbucket.(before|after).<event name>`.
 
 ## Your First Event Handler
 
-To play along, download and unpack an Inbucket distribution, then change into
+To play along, download and unpack an [Inbucket
+distribution](https://github.com/inbucket/inbucket/releases), then change into
 it's directory.  You should see the `inbucket` (or `inbucket.exe`) program, as
 well as the `ui` directory.
 
@@ -33,6 +34,8 @@ session to STDOUT:
 ```lua
 {{#include examples/simple.lua}}
 ```
+
+### Testing
 
 Next, start Inbucket by running `./inbucket` or `.\inbucket.exe` in your
 terminal. Inbucket should tell you it's loading inbucket.lua:
@@ -67,3 +70,12 @@ with Inbucket's normal logging:
 >>> LUA got MAIL FROM:  user    example.com
 10:45AM INF Mail from: user@example.com module=smtp remote=127.0.0.1:46916 session=1
 ```
+
+## Next Steps
+
+- The sample above used Lua's `print` function, which does not integrate well
+  with Inbucket's formatted log output.  See the [Logging](logging.md) section
+  to learn how to output leveled and structured logs.
+
+- Review the [Events](events.md) section to learn more about the types of
+  Inbucket events your can handle with Lua.
