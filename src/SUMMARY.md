@@ -22,4 +22,5 @@
         - [Delete Message](extensions/rest/delete-message.md)
         - [Purge Mailbox](extensions/rest/delete-mailbox.md)
     - [Lua API](extensions/lua/README.md)
+        - [Logging from Lua](extensions/lua/logging.md)
     - [Go API]()
