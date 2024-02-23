@@ -1,4 +1,4 @@
-# Extension APIs
+# Extending Inbucket
 
 Inbucket features a REST API that may be used to read and erase the contents of
 mailboxes.  Outgoing webhook functionality is not included, but can be
@@ -10,3 +10,5 @@ Inbucket processes them.
 
 It is also possible to extend Inbucket in a similar fashion in Go, but due to
 the lack of a plugin loader, it will requiring building Inbucket from source.
+
+The following chapters cover each of these extension mechanisms.
