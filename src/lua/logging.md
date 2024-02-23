@@ -21,20 +21,7 @@ parameter.
 ## Example
 
 ```lua
-local logger = require("logger")
-
--- The following functions all have the same signature but different names to
--- allow for log leveling.
-logger.debug("message at debug level", {})
-logger.info("message at info level", {})
-logger.warn("message at warn level", {})
-logger.error("message at error level", {})
-
--- Example with formatting and fields.
-local orig_addr = "input@example.com"
-local new_addr = "output@example.com"
-
-logger.info(string.format("Mapping address to %q", new_addr), {address = orig_addr})
+{{#include examples/logging.lua}}
 ```
 
 Console log output for the example above:
@@ -43,7 +30,6 @@ Console log output for the example above:
 $ env INBUCKET_LOGLEVEL=debug ./inbucket
 ```
 ```
-1:49PM INF Inbucket starting buildDate=undefined phase=startup version=undefined
 1:49PM INF Loading script module=lua path=inbucket.lua phase=startup
 1:49PM DBG message at debug level module=lua
 1:49PM INF message at info level module=lua
@@ -58,7 +44,6 @@ Example using JSON log output:
 $ env INBUCKET_LOGLEVEL=debug ./inbucket -logjson
 ```
 ```json
-{"level":"info","phase":"startup","version":"undefined","buildDate":"undefined","time":"2023-11-13T13:54:01-08:00","message":"Inbucket starting"}
 {"level":"info","module":"lua","phase":"startup","path":"inbucket.lua","time":"2023-11-13T13:54:01-08:00","message":"Loading script"}
 {"level":"debug","module":"lua","time":"2023-11-13T13:54:01-08:00","message":"message at debug level"}
 {"level":"info","module":"lua","time":"2023-11-13T13:54:01-08:00","message":"message at info level"}
