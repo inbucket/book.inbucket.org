@@ -1,5 +1,5 @@
 function inbucket.after.message_stored(msg)
-  local content = string.format("%q,%q", msg.from, msg.subject)
+  local content = string.format("%q,%q\n", msg.from.address, msg.subject)
 
   -- Write content to temporary file.
   local fnam = os.tmpname()
@@ -13,5 +13,4 @@ function inbucket.after.message_stored(msg)
   if status ~= 0 then
     error("command failed: " .. cmd)
   end
-  print("\n")
 end
