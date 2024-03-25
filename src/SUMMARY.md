@@ -5,7 +5,8 @@
 # User Guide
 
 - [Intended Usage]()
-- [Installation]()
+- [Installation](installation/README.md)
+    - [Linux Packages](installation/linux-package.md)
 - [Integration]()
     - [Mail Routing]()
     - [HTTP Proxies]()
