@@ -15,7 +15,7 @@
 
 # Reference Guide
 
-- [Configuration]()
+- [Configuration](configuration/README.md)
 - [Extending Inbucket](extending.md)
 - [REST API](rest/README.md)
     - [List Mailbox Contents](rest/get-mailbox.md)
