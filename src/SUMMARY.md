@@ -6,6 +6,7 @@
 
 - [Intended Usage]()
 - [Installation](installation/README.md)
+    - [Docker](installation/docker.md)
     - [Linux Packages](installation/linux-package.md)
 - [Integration]()
     - [Mail Routing]()
