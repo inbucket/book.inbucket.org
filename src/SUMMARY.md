@@ -16,6 +16,11 @@
 # Reference Guide
 
 - [Configuration](configuration/README.md)
+    - [Global](configuration/global.md)
+    - [SMTP Service](configuration/smtp.md)
+    - [POP3 Service](configuration/pop3.md)
+    - [Web Interface](configuration/web.md)
+    - [Mail Storage](configuration/storage.md)
 - [Extending Inbucket](extending.md)
 - [REST API](rest/README.md)
     - [List Mailbox Contents](rest/get-mailbox.md)
