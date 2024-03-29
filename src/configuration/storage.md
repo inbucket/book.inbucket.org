@@ -1,8 +1,10 @@
 # Mail Storage Configuration
 
-## Type
+## Storage Type
 
-`INBUCKET_STORAGE_TYPE`
+- Name: `INBUCKET_STORAGE_TYPE`
+- Default: `memory`
+- Values: `file` or `memory`
 
 Selects the storage implementation to use.  Currently Inbucket supports two:
 
@@ -15,18 +17,14 @@ Selects the storage implementation to use.  Currently Inbucket supports two:
 File storage is recommended for larger/shared installations.  Memory is better
 suited to desktop or continuous integration test use cases.
 
-- Default: `memory`
-- Values: `file` or `memory`
+## Storage Parameters
 
-## Parameters
-
-`INBUCKET_STORAGE_PARAMS`
+- Name: `INBUCKET_STORAGE_PARAMS`
+- Default: None
+- Examples: `maxkb:10240` or `path:/tmp/inbucket`
 
 Parameters specific to the storage type selected.  Formatted as a comma
 separated list of key:value pairs.
-
-- Default: None
-- Examples: `maxkb:10240` or `path:/tmp/inbucket`
 
 ### `file` type parameters
 
@@ -43,36 +41,33 @@ separated list of key:value pairs.
 
 ## Retention Period
 
-`INBUCKET_STORAGE_RETENTIONPERIOD`
+- Name: `INBUCKET_STORAGE_RETENTIONPERIOD`
+- Default: `24h`
+- Values: Duration ending in `m` for minutes, `h` for hours, or `0` to disable
 
 If set, Inbucket will scan the contents of its mail store once per minute,
 removing messages older than this.  This will be enforced regardless of the type
-of storage configured.
-
-- Default: `24h`
-- Values: Duration ending in `m` for minutes, `h` for hours.  Should be
-  significantly longer than one minute, or `0` to disable.
+of storage configured.  In most cases, the configured value should be
+significantly longer than one minute.
 
 ## Retention Sleep
 
-`INBUCKET_STORAGE_RETENTIONSLEEP`
+- Name: `INBUCKET_STORAGE_RETENTIONSLEEP`
+- Default: `50ms`
+- Values: Duration ending in `ms` for milliseconds, `s` for seconds
 
 Duration to sleep between scanning each mailbox for expired messages.
 Increasing this number will reduce disk thrashing, but extend the length of time
 required to complete a scan of the entire mail store.
 
-This delay is still enforced for memory stores, but could be reduced from the
+This delay is still enforced for `memory` stores, but could be reduced from the
 default.  Setting to `0` may degrade performance of HTTP/SMTP/POP3 services.
-
-- Default: `50ms`
-- Values: Duration ending in `ms` for milliseconds, `s` for seconds
 
 ## Per Mailbox Message Cap
 
-`INBUCKET_STORAGE_MAILBOXMSGCAP`
+- Name: `INBUCKET_STORAGE_MAILBOXMSGCAP`
+- Default: `500`
+- Values: Positive integer, or `0` to disable
 
 Maximum messages allowed in a single mailbox, exceeding this will cause older
 messages to be deleted from the mailbox.
-
-- Default: `500`
-- Values: Positive integer, or `0` to disable
