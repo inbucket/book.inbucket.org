@@ -20,6 +20,7 @@
           devShell = pkgs.mkShell {
             buildInputs = with pkgs; [
               mdbook
+              mdbook-mermaid
 
               scripts.serve
             ];
