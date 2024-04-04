@@ -4,7 +4,7 @@
 
 # User Guide
 
-- [Intended Usage]()
+- [Intended Usage](intended-usage.md)
 - [Installation](installation/README.md)
     - [Docker](installation/docker.md)
     - [Linux Packages](installation/linux-package.md)
