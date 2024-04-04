@@ -4,14 +4,16 @@ on:
   push:
     branches:
       - main
+  pull_request:
   workflow_dispatch:
+
+env:
+  PAGES_UPLOAD: ${{ github.ref == 'refs/head/main' }}
+  MDBOOK_TAG: "v0.4.37"
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
-
-    env:
-      MDBOOK_TAG: "v0.4.37"
 
     # GITHUB_TOKEN permissions.
     permissions:
@@ -37,12 +39,15 @@ jobs:
       - name: Build Book
         run: mdbook build
       - name: Setup Pages
+        if: ${{ env.PAGES_UPLOAD == 'true' }}
         uses: actions/configure-pages@v5
       - name: Upload artifact
+        if: ${{ env.PAGES_UPLOAD == 'true' }}
         uses: actions/upload-pages-artifact@v3
         with:
           # Upload entire repository
           path: 'book'
       - name: Deploy to GitHub Pages
+        if: ${{ env.PAGES_UPLOAD == 'true' }}
         id: deployment
         uses: actions/deploy-pages@v4
