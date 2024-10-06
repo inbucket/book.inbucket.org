@@ -9,17 +9,21 @@ function inbucket.before.mail_accepted(from_localpart, from_domain)
   if from_domain ~= "example.com" then
     logger.warn("Rejecting blocked from domain", { domain = from_domain })
 
-    -- Returning false causes the `MAIL FROM` command to be rejected.
-    return false
+    -- Returning `smtp.deny()` causes the `MAIL FROM` command to be rejected.
+    return smtp.deny()
   end
 
   -- Only allow sending users starting with `james`.
   if string.find(from_localpart, "james") ~= 1 then
     logger.warn("Rejecting blocked sender", { user = from_localpart })
 
-    return false
+	-- Returning `smtp.deny(<code>, "message")` causes the `MAIL FROM` command
+	-- to be rejected with a custom error.
+    return smtp.deny(554, "We only accept mail from james")
   end
 
-  -- Returning true instructs Inbucket to continue processing this message.
-  return true
+  -- Returning `smtp.defer()` instructs Inbucket to continue processing this
+  -- message, respecting it's built-in logic and environment variable config.
+  -- Using `smtp.allow()` would force Inbucket to accept this `MAIL FROM`.
+  return smtp.defer()
 end
