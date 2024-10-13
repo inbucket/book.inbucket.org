@@ -9,7 +9,7 @@ Inbucket processes them.
 Lua scripting support is new for Inbucket version 3.1.
 
 We will work to avoid breaking changes, but given the API is incomplete, that
-may be unavoidable.
+may not be possible.
 
 </div>
 

@@ -32,6 +32,7 @@
     - [Logging from Lua](lua/logging.md)
     - [Events](lua/events.md)
         - [Before Mail Accepted](lua/before-mail-accepted.md)
+        - [Before RCPT TO Accepted](lua/before-rcpt-to-accepted.md)
         - [Before Message Stored](lua/before-message-stored.md)
         - [After Message Stored](lua/after-message-stored.md)
         - [After Message Deleted](lua/after-message-deleted.md)
