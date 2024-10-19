@@ -1,6 +1,6 @@
 local logger = require("logger")
 
-function inbucket.before.mail_accepted(from_localpart, from_domain)
+function inbucket.before.mail_from_accepted(from_localpart, from_domain)
   logger.info(
     string.format("Inspecting mail from %s@%s", from_localpart, from_domain),
     {})

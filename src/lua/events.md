@@ -41,7 +41,8 @@ not degrade Inbucket's performance.
 
 The order in which events occur is:
 
-1. [Before Mail Accepted](lua/before-mail-accepted.md)
-2. [Before Message Stored](lua/before-message-stored.md)
-3. [After Message Stored](lua/after-message-stored.md)
-4. [After Message Deleted](lua/after-message-deleted.md)
+1. [Before MAIL FROM Accepted](before-mail-from-accepted.md)
+1. [Before RCPT TO Accepted](before-rcpt-to-accepted.md)
+2. [Before Message Stored](before-message-stored.md)
+3. [After Message Stored](after-message-stored.md)
+4. [After Message Deleted](after-message-deleted.md)
