@@ -13,5 +13,6 @@ function inbucket.after.message_stored(msg)
   -- Format the unix timestamp in a human readable way.
   print(string.format("date: %s", os.date("%c", msg.date)))
 
+  print(string.format("size: %s", msg.size))
   print(string.format("subject: %s", msg.subject))
 end
