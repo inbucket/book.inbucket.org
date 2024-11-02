@@ -9,7 +9,7 @@ This example denies mail that is not from `james*@example.com`:
 {{#include examples/before_mail_from_accepted.lua}}
 ```
 
-Example SMTP session:
+### Example SMTP session
 
 ```
 220 inbucket Inbucket SMTP ready
@@ -19,7 +19,7 @@ MAIL FROM:<bob@example.com>
 554 We only accept mail from james
 ```
 
-Inbucket log output:
+#### Inbucket log output
 
 ```
 1:17PM INF Starting SMTP session module=smtp remote=127.0.0.1:51726 session=1
