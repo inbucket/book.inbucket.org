@@ -1,8 +1,6 @@
 {
   "runtime.version": "Lua 5.1",
   "diagnostics": {
-    "globals": [
-      "inbucket"
-    ]
+    "globals": ["inbucket", "smtp"]
   }
 }
