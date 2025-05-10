@@ -12,6 +12,20 @@ This setting controls the verbosity of log output.  A small desktop installation
 should probably select `info`, but a busy shared installation would be better
 off with `warn` or `error`.
 
+## Log Coloring
+
+- Name: `NO_COLOR`
+- Default: *empty-string*
+- Values: *empty-string* (false) or *anything* (true)
+
+This setting is not specific to Inbucket, so there is no `INBUCKET_` prefix, but
+is widely supported by many command line tools.  It is used to disable color in
+log output.
+
+If set to any value, Inbucket will not use color in log output.  This is useful
+when redirecting logs to a file, systemd or other non-interactive output.  Color
+is always disabled when logging as JSON or to a file.
+
 ## Lua Script
 
 - Name: `INBUCKET_LUA_PATH`
