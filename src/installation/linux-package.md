@@ -42,7 +42,7 @@ systemctl start inbucket
 systemctl status inbucket
 
 # Check system logs for startup errors
-journalctl -u inbucket
+journalctl -eu inbucket
 ```
 
 ## Access Web Interface
